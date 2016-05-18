@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font: bold 14px/25px Georgia;
+			}
+			
+			#warp {
+				width: 400px;
+				height: 600px;
+				background: -webkit-gradient(linear, left top, left bottom, from(#EE0000), color-stop(0.5, #E9967A), to(#FF0000));
+				background: -moz-linear-gradient(top, #EE0000, #E9967A 50%, #ff0000);
+				position: absolute;
+				right: 0;
+			}
+			
+			#demo1 {
+				width: 320px;
+				height: 520px;
+				background: white;
+				border-radius: 20px;
+				margin: 10px auto;
+				overflow: hidden;
+			}
+			
+			h3 {
+				font: bolder 30px/25px Times-New-Roman;
+				color: white;
+				padding: 15px 0 0 140px;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			li {
+				padding: 5px 30px;
+				border-bottom: dotted 2px #ccc;
+			}
+			/*转盘样式*/
+			
+			#canvas {
+				position: absolute;
+				z-index: -1;
+				transition: transform 4s;
+				-webkit-transition: transform 4s;
+				-moz-transition: transform 4s;
+				-o-transition: transform 4s;
+			}
+			
+			#canvas1 {
+				position: absolute;
+				z-index: 1;
+			}
+			
+			#canvas2 {
+				position: absolute;
+				z-index: -2;
+				background: url("http://cdn.attach.w3cfuns.com/notes/pics/201605/14/222612a9z592ywyu1mwwsv.jpg") repeat;
+			}
+			
+			div {
+				width: 800px;
+				height: 600px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="warp">
+			<h3>活动动态</h3>
+			<div id="demo1">
+				<ul id="ul">
+				</ul>
+			</div>
+		</div>
+
+		<!--转盘结构-->
+		<div>
+			<canvas id="canvas"></canvas>
+			<canvas id="canvas1"></canvas>
+			<canvas id="canvas2"></canvas>
+		</div>
+		<script>
+			produce_text = ["iphone 6s 玫瑰金", "ipad air 2-64G", "100元淘宝购物券", "nubia z9 顶配版", "小米 note 顶配版", "华为荣耀土豪金", "华为p8 土豪金", "50QB充值卡", "索尼数码相机", "魅族note顶配", "移动全国流量1G", "爱奇艺黄金会员3个月"];
+			end_num = '';
+			num_text = ["139", "189", "131", "158", "177", "137", "131", "155", "150", "138"];
+			var random = function() {
+				num1 = Math.floor(Math.random() * 11);
+				end_num = Math.floor(Math.random() * 8999 + 1000);
+				num3 = Math.floor(Math.random() * 10);
+			};
+			var createa_node = function() {
+				var parent = document.getElementById("ul");
+				for (var i = 0; i < 100; i++) {
+					random();
+					var text = document.createTextNode(num_text[num3] + "****" + end_num + "获得了" + produce_text[num1]);
+					var li = document.createElement("li");
+					li.appendChild(text);
+					parent.appendChild(li);
+				}
+			};
+
+			function startmarquee(lh, speed, delay, index) {
+				/*
+				 函数startmarquee的参数：
+				 lh：文字一次向上滚动的距离或高度；
+				 speed：滚动速度；
+				 delay：滚动停顿的时间间隔；
+				 index：可以使封装后的函数应用于页面当中不同的元素；
+				 */
+				var t;
+				var p = false;
+				var o = document.getElementById("demo1");
+				//获取文档中的滚动区域对象，赋值给变量o；
+				o.innerHTML += o.innerHTML; //对象中的实际内容被复制了一份，包含了两个ul，当然li标签也
+				//    由原来的3行，变为6行；复制的目的在于给文字不间断向上滚动提供过渡。
+				o.onmouseover = function() {
+					p = true
+				};
+				//鼠标滑过，停止滚动；
+				o.onmouseout = function() {
+					p = false
+				};
+				//鼠标离开，开始滚动；p是true还是false直接影响到下面start()函数的执行；
+				o.scrollTop = 0;
+				//文字内容顶端与滚动区域顶端的距离，初始值为0；
+				function start() {
+					t = setInterval(scrolling, speed); //每隔一段时间，setInterval便会执行一次
+					//   scrolling函数；speed越大，滚动时间间隔越大，滚动速度越慢；
+					if (!p) {
+						o.scrollTop += 1;
+					}
+					//滚动停止或开始，取决于p传来的布尔值；
+				}
+
+				function scrolling() {
+					if (o.scrollTop % lh != 0) {
+						//如果不被整除，即一次上移的高度达不到lh，则内容会继续往上滚动；
+						o.scrollTop += 1;
+						if (o.scrollTop >= o.scrollHeight / 2) o.scrollTop = 0;
+						//对象o中的内容之前被复制了一次，所以它的滚动高度，其实是原来内容的两倍高度；
+						/*     当内容向上滚动到scrollHeight/2的高度时，全部3行文字已经显示了一遍，至此整块内容
+						     scrollTop归0；再等待下一轮的滚动，从而达到文字不间断向上滚动的效果；*/
+					} else {
+						clearInterval(t);
+						//否则清除t，暂停滚动
+						setTimeout(start, delay);
+						//经过delay间隔后，启动start() 再连续滚动
+					}
+				}
+				setTimeout(start, delay);
+				//第一次启动滚动；setTimeout会在一定的时间后执行函数start()，且只执行一次
+			}
+			//传递参数
+			createa_node();
+			startmarquee(58, 30, 0, 0);
+			/*转盘特效*/
+			var canvas = document.getElementById("canvas");
+			var canvas1 = document.getElementById("canvas1");
+			var canvas2 = document.getElementById("canvas2");
+			var ctx = canvas.getContext("2d");
+			var ctx1 = canvas1.getContext("2d");
+			var ctx2 = canvas2.getContext("2d");
+			var itext = ["一等奖", "二等奖", "三等奖", "四等奖", "五等奖", "六等奖", "七等奖", "谢谢参与"];
+			canvas.width = document.body.clientWidth;
+			canvas.height = 600;
+			canvas1.width = document.body.clientWidth;
+			canvas1.height = 600;
+			canvas2.width = document.body.clientWidth;
+			canvas2.height = 600;
+			var w = canvas.width / 2;
+			var h = canvas.height / 2;
+			var startangle = 0;
+			var endangle = 0;
+			angel = Math.PI * 2 / 8;
+			angel1 = Math.PI * 2 / 32;
+			speed = 50;
+			degree = 0;
+			price = "";
+			mark = 9;
+			var num, round;
+			var outcircle = function() {
+				ctx.lineWidth = 200;
+				ctx.translate(w, h);
+				ctx.rotate(Math.PI / 180 * 290);
+				ctx.translate(-w, -h)
+				for (var i = 0; i < 8; i++) {
+					startangle = angel * i;
+					endangle = angel * (i + 1);
+					(i + 1) % 2 ? ctx.strokeStyle = " 	#1E90FF" : ctx.strokeStyle = "#1874CD";
+					ctx.beginPath();
+					ctx.arc(w, h, 100, startangle, endangle);
+					ctx.stroke();
+				}
+			};
+			var bgborder = function() {
+				ctx2.fillStyle = "#FFA07A";
+				ctx2.beginPath();
+				ctx2.arc(w, h, 220, 0, 2 * Math.PI);
+				ctx2.fill();
+			}
+			var bgcirecle = function() {
+				ctx2.translate(w, h);
+				ctx2.fillStyle = " #ffff00";
+				for (var i = 0; i < 32; i++) {
+					ctx2.beginPath();
+					ctx2.arc(0, -210, 9, 0, 2 * Math.PI);
+					ctx2.fill();
+					ctx2.rotate(angel1);
+				}
+			}
+			var incircle = function() {
+				ctx.fillStyle = "rgba(0,0,0,0.5)";
+				ctx.beginPath();
+				ctx.arc(w, h, 75, 0, 2 * Math.PI);
+				ctx.fill();
+			};
+			var text = function() {
+				ctx.font = "30px bold Arial";
+				ctx.fillStyle = "#f60";
+				ctx.textAlign = "center";
+				ctx.textBaseline = "middle";
+				ctx.translate(w, h);
+				ctx.rotate(angel / 2);
+				ctx.rotate(-angel);
+				for (var i = 0; i < 8; i++) {
+					ctx.rotate(-angel);
+					ctx.fillText(itext[i], 135, 0);
+				}
+				ctx.translate(-w, -h);
+			};
+			var get_xy = function(ev) {
+				var x, y;
+				if (ev.layerX || ev.layerY == 0) {
+					x = ev.layerX;
+					y = ev.layerY;
+				} else if (ev.offsetX || ev.offsetY) {
+					x = ev.offsetX;
+					y = ev.offsetY;
+				}
+				return {
+					x: x,
+					y: y
+				}
+			};
+			i = 0;
+			canvas1.onclick = function(e) {
+				p = get_xy(e);
+				if (i == 0) {
+					if (p && ctx1.isPointInPath(p.x, p.y)) {
+						i++;
+						spin();
+						setTimeout("i=0,alert(price)", 4000);
+					}
+				}
+			};
+			var btn = function() {
+				ctx1.font = "20px Arial";
+				var c = ctx1.createLinearGradient(w - 50, h, w + 50, h);
+				c.addColorStop(0, "#B2DFEE");
+				c.addColorStop(1, "#AB82FF");
+				ctx1.fillStyle = c;
+				ctx1.textAlign = "center";
+				ctx1.textBaseline = "middle";
+				ctx1.beginPath();
+				ctx1.arc(w, h, 50, 0, 2 * Math.PI);
+				ctx1.fill();
+				ctx1.fillStyle = "#fff";
+				ctx1.fillText("开始抽奖", w, h);
+			};
+			var point = function() {
+				ctx1.fillStyle = "#EE2C2C";
+				ctx1.beginPath();
+				ctx1.moveTo(w, h - 120);
+				ctx1.lineTo(w - 46, h - 20);
+				ctx1.lineTo(w + 46, h - 20);
+				ctx1.fill();
+			};
+			j = 0;
+			num1 = -1;
+			range = 0;
+			var spin = function() {
+				random();
+				if (j == 0) {
+					degree += Math.floor(360 * round) + (num) * 45;
+					j++;
+				} else {
+					degree += Math.floor(360 * round) + ((num - num1) * 45);
+				}
+				num1 = num;
+				console.log(degree, round, num, range, mark);
+				if (num != 0) price = itext[num - 1];
+				else {
+					price = itext[7];
+				}
+				if (num == 0) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 1) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 2) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 3) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 4) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 5) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 6) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+				if (num == 7) {
+					canvas.style.transform = "rotate(" + degree + "deg)";
+				}
+			};
+			var random = function() {
+				mark = Math.floor(Math.random() * 10);
+				if (mark >= 4) {
+					num = 0;
+				} else if (mark >= 1) {
+					num = Math.floor(Math.random() * 5) + 3;
+				} else
+					num = 2;
+				round = Math.floor(Math.random() * 2 + 4);
+				if (num1 > num)
+					range = Math.floor(Math.random() * 9 + 36);
+				else {
+					range = Math.floor(Math.random() * 8 + 35);
+				}
+			};
+			window.onload = function() {
+				document.body.style.overlfow = 'hidden'
+				outcircle();
+				text();
+				incircle();
+				point();
+				btn();
+				bgborder();
+				bgcirecle();
+			}
+		</script>
+	</body>
+
+</html>
