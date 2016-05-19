@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="//cdn.bootcss.com/echarts/3.1.9/echarts.min.js"></script>
+		<style type="text/css">
+			.splash {
+				width: 80px;
+				height: 80px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="splash" data-value="0.881349">
+		</div>
+		<div class="splash" data-value="0.481349">
+		</div>
+		<div class="splash" data-value="0.381349">
+		</div>
+		<div class="splash" data-value="0.181349">
+		</div>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				var labelTop = {
+					normal: {
+						label: {
+							show: true,
+							position: 'center',
+							formatter: '{b}',
+							textStyle: {
+								baseline: 'bottom'
+							}
+						},
+						labelLine: {
+							show: false
+						}
+					}
+				};
+				var labelFromatter = {
+					normal: {
+						label: {
+							formatter: function(params) {
+								return parseInt(100 - (parseFloat(params.value) * 100 > 99 && parseFloat(params.value) * 100 < 100 ? 99 : parseFloat(params.value) * 100)) + '%'
+							},
+							textStyle: {
+								fontSize: '16',
+								color: '#80acda',
+								align: 'center'
+							}
+						}
+					}
+				}
+				var labelBottom = {
+					normal: {
+						color: '#ccc',
+						label: {
+							show: true,
+							position: 'center'
+						},
+						labelLine: {
+							show: false
+						}
+					}
+				};
+				var option = {
+					color: ['#80acda'],
+					animation: false,
+					series: [{
+						type: 'pie',
+						center: ['50%', '50%'],
+						radius: [26, 30],
+						// x:'80%', // for funnel
+						itemStyle: labelFromatter,
+						clockWise: false
+					}]
+				};
+				/*
+				 * 
+				 */
+				var containers = document.querySelectorAll('.splash');
+				
+				for (var i = 0; i < containers.length; i++) {
+					var el = containers[i];
+					var value = el.getAttribute('data-value');
+					var data = [];
+					data.push({
+						name: ' ',
+						value: 1 - value,
+						itemStyle: labelBottom
+					});
+					data.push({
+						name: ' ',
+						value: value,
+						itemStyle: labelTop
+					});
+					var myCharts = echarts.init(containers[i]);
+					option.series[0].data = data;
+					myCharts.setOption(option);
+				}
+			};
+		</script>
+
+	</body>
+
+</html>
