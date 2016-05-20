@@ -8,10 +8,22 @@
 		<script src="raphael.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>-->
 		<style type="text/css">
+			ul {
+				position: relative;
+			}
+			
+			ul li {
+				position: relative;
+				list-style: none;
+				width: 50%;
+				float: left;
+				height: 200px;
+			}
+			
 			.circle-bg {
 				position: absolute;
-				top: 146px;
-				left: 106px;
+				/*top: 146px;
+				left: 106px;*/
 				width: 108px;
 				height: 108px;
 			}
@@ -46,26 +58,47 @@
 
 	<body>
 
-		<div class="circle-bg">
-			<p class="circle-num">
-				<span class="num">90</span>
-				<span class="per">%</span>
-			</p>
-			<p class="circle-title">已达</p>
-			<div class="circle-svg">
-			</div>
-		</div>
+		<ul>
+			<li>
+				<div class="circle-bg">
+					<p class="circle-num">
+						<span class="num">91</span>
+						<span class="per">%</span>
+					</p>
+					<p class="circle-title">已达</p>
+					<div class="circle-svg">
+					</div>
+				</div>
+
+			</li>
+			<li>
+				<div class="circle-bg">
+					<p class="circle-num">
+						<span class="num">76</span>
+						<span class="per">%</span>
+					</p>
+					<p class="circle-title">已达</p>
+					<div class="circle-svg">
+					</div>
+				</div>
+
+			</li>
+			<li>
+				<div class="circle-bg">
+					<p class="circle-num">
+						<span class="num">76</span>
+						<span class="per">%</span>
+					</p>
+					<p class="circle-title">已达</p>
+					<div class="circle-svg">
+					</div>
+				</div>
+
+			</li>
+		</ul>
 
 		<script type="text/javascript">
-			/*
-			 * hello world Raphael
-			 */
-			function helloworld_Raphael() {
-				var paper = Raphael(10, 50, 320, 200);
-				var circle = paper.circle(50, 40, 10);
-				circle.attr('fill', '#f00');
-				circle.attr("stroke", "#fff");
-			}
+			
 			/*
 			 *  render circle - percent
 			 */
@@ -75,7 +108,9 @@
 				 */
 				//container, width, height
 				var paper = Raphael(el, 108, 108);
-				
+				/*
+				 * 
+				 */
 				paper.customAttributes.arc = function(t, i, e, c, n) {
 					var r, s = 360 / c * e,
 						a = (90 - s) * Math.PI / 180,
@@ -105,6 +140,9 @@
 							arc: [54, 54, .01, 100, 47]
 						})),
 					n = percent;
+				/*
+				 * 
+				 */
 				n >= 80 && (c = paper.path().attr({
 							stroke: "#fd30ae",
 							"stroke-width": 4,
@@ -115,13 +153,19 @@
 					n >= 100 && (n = 100),
 					n > 0 ? c.animate({
 						arc: [54, 54, n, 100, 47]
-					}, 500, "ease-in-out") : c.hide()
+					}, 500, "ease-in-out") : c.hide();
 			}
 			/*
 			 * 
 			 */
 			window.onload = function() {
-				renderCircle(document.querySelector('.circle-svg'), 70);
+				//renderCircle(document.querySelector('.circle-svg'), 70);
+				var allCharts = document.querySelectorAll('.circle-svg');
+				for (var i = 0, l = allCharts.length; i < l; i++) {
+					var target = allCharts[i];
+					var percent = target.parentNode.querySelector('.num').innerText;
+					renderCircle(target, percent);
+				}
 			};
 		</script>
 

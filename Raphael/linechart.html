@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="raphael.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="popup.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+		<style type="text/css">
+			#container {
+				width: 100%;
+				height: 180px;
+				background-color: #ffffff;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="container"></div>
+		<script type="text/javascript">
+			window.onload = function() {
+				var paper = Raphael(10, 50, 320, 200);
+				// 设置随机曲线类型
+				var c = paper.circle(50, 50, 40);
+
+				function animate() {
+					var ms = 1000;
+					var easing = ['elastic', '', 'bounce', 'ease-in-out'][Math.round(Math.random() * 3)];
+					c.animate({
+						cx: 50 + Math.random() * 120, //圆心x坐标
+						cy: 50 + Math.random() * 100, //圆心y坐标
+					}, ms, easing, function() {
+						setTimeout(animate, 1000);
+					});
+				}
+				setTimeout(animate, 1000);
+			}
+		</script>
+
+		<script type="text/javascript">
+			/*
+			 * 
+			 */
+			function renderLine(el, labels, datas) {
+				//
+				var containerW = $(el).width(),
+					containerH = $(el).height();
+				var paper = Raphael($(el)[0], containerW, containerH);
+				var leftgutter = 10,
+					topgutter = 30,
+					bottomgutter = 40;
+				var lineHeight = containerH - topgutter - bottomgutter - 15;
+				var points = [];
+				var maxValue = Math.max.apply(null, datas);
+				var minValue = Math.min.apply(null, datas);
+				var perValue = lineHeight / (maxValue - minValue);
+				var serieseLength = labels.length;
+				var blanket = paper.set();
+				var X = (containerW - leftgutter) / serieseLength;
+				var dotin = {
+						r: 6,
+						fill: "#f56868",
+						stroke: "#ffc8c8",
+						"stroke-width": 2
+					},
+					dotout = {
+						r: 4,
+						fill: "#f56868",
+						stroke: "white",
+						"stroke-width": 1
+					},
+					txt1 = {
+						'font-size': 11,
+						'fill': '#f35151'
+					},
+					txt2 = {
+						'font-size': 11,
+						'fill': '#999999'
+					},
+					path1 = {
+						'stroke': '#ffbdbd',
+						"stroke-width": 2
+					},
+					pop1 = {
+						//fill: "#fff",
+						stroke: "red",
+						"stroke-width": 1,
+						"fill-opacity": 1
+					};
+				//
+				//
+				//
+				for (var i = 0; i < serieseLength; i++) {
+					//
+					var xp = parseFloat(containerW / serieseLength);
+					//
+					var x = 30.0 + xp * i;
+					//
+					var y = containerH - bottomgutter - perValue * (datas[i] - minValue);
+					//
+					//path line
+					points.push({
+						x: x,
+						y: y
+					});
+				}
+				//
+				var strPath = "";
+				for (var i = 0; i < points.length; i++) {
+					if (i == 0) {
+						strPath = "M" + points[0].x + " " + points[0].y;
+					}
+					strPath += "L" + points[i].x + " " + points[i].y;
+				}
+				//
+				paper.path(strPath).attr(path1);
+				//
+				//
+				for (var i = 0; i < points.length; i++) {
+					var x = points[i].x,
+						y = points[i].y;
+					//dots
+					var dot = paper.circle(x, y).attr(dotout);
+					//value -text
+					var tips = paper.text(x, y - 20, " +" + datas[i] + " ");
+					tips.attr(txt1);
+					// x - text
+					paper.text(x, 160, labels[i]).attr(txt2);
+					//
+					//
+					blanket.push(paper.rect(leftgutter + X * i, 0, X, containerH).attr({
+						stroke: "none",
+						fill: "#fff",
+						opacity: 0.1
+					}));
+					//
+					//
+					var rect = blanket[blanket.length - 1];
+					//
+					(function(x, y, data, lbl, dot, tips) {
+						//
+						var timer, i = 0;
+						var side = "top";
+						//						if (y < 60) {
+						//							side = "bottom";
+						//						}
+						var frame = paper.popup(x, y, tips, side).attr(pop1).hide();
+						//
+						rect.hover(function() {
+							dot.attr(dotin);
+							tips.attr('font-size', 13);
+							frame.show();
+						}, function() {
+							frame.hide();
+							dot.attr(dotout);
+							tips.attr('font-size', 11);
+						});
+					})(x, y, datas[i], labels[i], dot, tips);
+				}
+			}
+		</script>
+		<script type="text/javascript">
+			//$().rendercharts();
+			function rendercharts() {
+				var labels = ['05/18', '05/19', '05/20', '05/21', '05/22', '05/23', '05/24'];
+				var datas = [90.08, 100.92, 130.23, 115.30, 120.43, 76.32, 88.33];
+				renderLine('#container', labels, datas);
+			}
+			window.onload = function() {
+				rendercharts();
+			};
+			window.onresize = function() {
+				$("#container").html('');
+				rendercharts();
+			}
+		</script>
+	</body>
+
+</html>
