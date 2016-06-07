@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>问题之this</title>
+		<script type="text/javascript">
+			var foo = {
+				bar: function() {
+					return this.baz;
+				},
+				baz: 1
+			};
+			(function() {
+				return typeof arguments[0]();
+			})(foo.bar);
+		</script>
+		<style type="text/css">
+			pre {
+				background-color: #CCCCCC;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<pre>
+			
+			var foo = {
+				bar: function() {
+					return this.baz;
+				},
+				baz: 1
+			};
+			(function() {
+				return typeof arguments[0]();
+			})(foo.bar);
+		
+		</pre>
+
+		<pre>
+			
+答案： “undefined”
+
+为什么是”undefined”？我们必须要知道this运算符是怎么工作的。
+
+JS语言精粹总结的很精炼:
+
+1 纯粹的函数调用
+
+2 作为对象方法的调用
+
+3 作为构造函数调用
+
+4 apply调用
+
+我们看看题目是属于那种环境？
+
+在arguments[0]()中执行了一个方法,arguments[0]就是foo.bar方法，注意:这在foo.bar中的this是没有绑定到foo。虽然 foo.bar 传递给了函数，但是真正执行的时候，函数 bar 的上下文环境是 arguments，并不是 foo。
+
+arguemnts[0] 可以理解为 arguments.0（不过写代码就不要这样了，语法会错误的），所以这样看来，上下文环境是 arguemnts 就没问题了，所以在执行baz的时候自然this就是arguemnts了，arguemnts 上没有baz属性，返回的就是undefined，typeof调用的话就转换成”undefined”了。
+
+		</pre>
+	</body>
+
+</html>
