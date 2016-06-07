@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="cnblogs.css" />
+	</head>
+
+	<body>
+		<div id="post_detail">
+			<!--done-->
+			<div id="topics">
+				<div class="post">
+					<h1 class="postTitle">
+			HTML5主要新增标签
+		</h1>
+					<div class="clear"></div>
+					<div class="postBody">
+						<div id="cnblogs_post_body">
+							<h1>HTML5介绍</h1>
+							<p>HTML5是继HTML4以后的下一代HTML标准规范，它提供了一些新的元素和属性。新型的标签有利于搜索引擎和语义分析，同时更好地帮助小屏幕装置和视障人士使用，除此之外，也提供了一些新的功能，总结而言，有如下几大特点：</p>
+							<p><strong>1、取消了一些HTML4里过时的元素和属性标记</strong></p>
+							<p>其中包括纯粹显示效果的标记，如&lt;font&gt;和&lt;center&gt;，它们已经被CSS取代。HTML5吸取了XHTML2的一些建议，包括一些用来改善文档结构的功能，比如，新的HTML标签header，footer，dialog，aside，figure等的使用，将使内容创作者更加语义地创建文档，之前的开发者在实现这些功能时一般都是使用div。</p>
+							<p><strong>2、内容与展式分离</strong></p>
+							<p>b和i标签依然保留，但它们意义和之前有不同，这些标签的意义是为了将一段文字标识出来，而不是为了设置粗体或斜体样式。u,font,center,strike这些标签则被完全去掉了。</p>
+							<p><strong>3、新增加一些全新的表单输入对象</strong></p>
+							<p>包括日期，URL，Email地址，其它的对象则增加了对非拉丁字符的支持。HTML5还引入了微数据，这一使用机器可以识别的标签标注内容的方法，使语义Web的处理更为简单。总的来说，这些与结构有关的改进使内容创建者可以创建更干净、更容易管理的网页，这样的网页对搜索引擎、对读屏软件等更为友好。</p>
+							<p><strong>4、全新的、更合理的标签</strong></p>
+							<p>多媒体对象将不再全部绑定在object或embedTag中，而是视频有video标签，音频有audio标签。</p>
+							<p><strong>5、本地存储</strong></p>
+							<p>增加了localStorage/sessionStorage/indexedDB等浏览器端存储功能。</p>
+							<p><strong>6、Canvas对象</strong></p>
+							<p>将给浏览器带来直接绘制图形的能力，可以直接在浏览器中操作图形。</p>
+							<p><strong>7、新的API扩展</strong></p>
+							<p>为HTMLDocument和HTMLElement接口提供了新的API扩展。</p>
+							<p><strong>8、新语法</strong></p>
+							<p>（1）DOCTYPE</p>
+							<p>HTML5的HTML语法要求文档必须声明DOCTYPE以确保浏览器可以在标准模式下展示页面。声明方式是：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE html</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<p>不区分大小写。</p>
+							<p>（2）Charset</p>
+							<p>HTML5的HTML语法里，有三种形式可以声明字符串的encoding类型：</p>
+							<ul>
+								<li>在传输级别（transport level）上，在HTTP实例的header里设置Content-Type。</li>
+								<li>在文件的开头，设置一个Unicode的Bype Order Mark(BOM)，该字符为文件的encoding方式提供了一个签名。</li>
+								<li>在文档的前1024个byte之间的内容里，使用带有charset属性的meta元素来声明encoding方式。例如：&lt;meta charset="utf-8"&gt;。</li>
+							</ul>
+							<p>（3）MathML和SVG</p>
+							<p>HTML5的HTML语法允许在文档里使用MathML（数学标记语言）和SVG（可伸缩矢量图）元素。例如，一个非常简单的HTML页面包含一个svg元素画出的圆：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">doctype html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>SVG in text/html<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+ A green circle:
+ </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">svg</span><span style="color: #0000ff;">&gt;</span> <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">circle </span><span style="color: #ff0000;">r</span><span style="color: #0000ff;">="50"</span><span style="color: #ff0000;"> cx</span><span style="color: #0000ff;">="50"</span><span style="color: #ff0000;"> cy</span><span style="color: #0000ff;">="50"</span><span style="color: #ff0000;"> fill</span><span style="color: #0000ff;">="green"</span><span style="color: #0000ff;">/&gt;</span> <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">svg</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<h1><span style="line-height: 1.5;">section</span></h1>
+							<p>section 元素是对页面文档结构进行划分的最基本也是最主要的结构元素，主要用来对网站或应用程序中的页面上的内容进行层次结构上的划分。一个section元素通常由内容及其标题组成。</p>
+							<p>如果元素的内容集中到一起显示可以表达相应的意思的话，可以定义成article元素，而没必要使用section元素。</p>
+							<p>section元素不是一般的容器元素，所以如果一个元素需要定义相应的style或script脚本的话，推荐使用div元素，section的使用是确保这个元素的内容能够明确地展示在文档的大钢里。</p>
+							<p>如：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE Html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>Graduation Ceremony Summer 2022<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Graduation<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Ceremony<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Opening Procession<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Speech by Validactorian<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Speech by Class President<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Presentation of Diplomas<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Closing Speech by Headmaster<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Graduates<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Molly Carpenter<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Anastasia Luccio<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Ebenezar McCoy<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Karrin Murphy<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Thomas Raith<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>Susan Rodriguez<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1><span style="line-height: 1.5;">article</span></h1>
+							<p>article 元素代表文档、页面或应用程序中的所有“正文”部分，它所描述的内容应该是独立的、完整的、可以独自被外部引用的，可以是一篇博客、一篇报刊中的文章、一篇论坛帖子、一段用户评论、一个独立的插件，或任何独立于上下文中其他部分的内容。</p>
+							<p>article是一个特殊的section标签，它比section具有更明确的语义，它代表一个独立的、完整的相关内容块。一般来说，article会有标题部分。</p>
+							<p>当article内嵌article时，原则上来说，内部的article的内容是和外层的article内容相关的。例如，一篇博客中，包含用户提交的评论的article应该嵌套在包含博客文章article中。</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Safari 5 released<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>7 Jun 2010. Just after the announcement of the new iPhone 4 at WWDC.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Apple announced the release of Safari 5 for Windows and Mac......<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<h1><span style="line-height: 1.5;">nav</span></h1>
+							<p>nav 元素是一个可以作为页面导航的链接组，其中的导航元素链接到其他页面或当前页面的其他部分。一个页面可以拥有多个nav元素，作为页面整体不同部分的导航。在nav元素中，一般以ul列表的形式来具体放置该组链接元素。</p>
+							<p>下面是w3c给出的一个示例代码：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>The Wiki Center Of Exampland<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">nav</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="/"</span><span style="color: #0000ff;">&gt;</span>Home<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="/events"</span><span style="color: #0000ff;">&gt;</span>Current Events<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+            ...more...
+        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">nav</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span> Demos in Exampland<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>Written by A. N. Other.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">nav</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="#public"</span><span style="color: #0000ff;">&gt;</span>Public demonstrations<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="#destroy"</span><span style="color: #0000ff;">&gt;</span>Demolitions<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+                ...more...
+            </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">nav</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="public"</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Public demonstrations<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span> ...more...<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="destroy"</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Demolitions<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>...more...<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+            ...more...
+        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="?edit"</span><span style="color: #0000ff;">&gt;</span>Edit<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span> | <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="?delete"</span><span style="color: #0000ff;">&gt;</span>Delete<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span> | <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="?Rename"</span><span style="color: #0000ff;">&gt;</span>Rename<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">small</span><span style="color: #0000ff;">&gt;</span>© copyright 1998 Exampland Emperor<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">small</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1>aside</h1>
+							<p>aside元素用来表示当前页面或文章的附属信息部分，它可以包含与当前页面或主要内容相关的引用、侧边栏、广告、导航条、以及其他有别于主要内容的部分。</p>
+							<p>根据目前的规范，aside元素有两种使用方法：</p>
+							<ul>
+								<li>被包含在article中作为主要内容的附属信息部分，其中的内容可以是当前文章有关的引用，词汇列表等。</li>
+								<li>在article外使用，作为页面或站点全局的附属信息部分；最典型的形式是侧边栏，其中的内容可以是友情链接、附属导航或广告单元等。</li>
+							</ul>
+							<p>下面的代码示例综合了以上两种方法：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>My Blog<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>My Blog Post<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aside</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Glossary<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dl</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dt</span><span style="color: #0000ff;">&gt;</span>Lorem<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dt</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">dd</span><span style="color: #0000ff;">&gt;</span>ipsum dolor sit amet<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dd</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">dl</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">aside</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">aside</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h2</span><span style="color: #0000ff;">&gt;</span>Blogroll<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h2</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="#"</span><span style="color: #0000ff;">&gt;</span>My Friend<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="#"</span><span style="color: #0000ff;">&gt;</span>My Other Friend<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="#"</span><span style="color: #0000ff;">&gt;</span>My Best Friend<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">aside</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1><span style="line-height: 1.5;">hgroup</span></h1>
+							<p>hgroup 元素是将标题及其子标题进行分组的元素。hgroup元素通常对h1~h6元素进行分组，如将一个内容区块的标题及其子标题划为一组：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">hgroup</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Welcome to my WWF<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h2</span><span style="color: #0000ff;">&gt;</span>For a living planet<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h2</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">hgroup</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>The rest of the content...<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<h1><span style="line-height: 1.5;">header</span></h1>
+							<p>header 元素是一种具有引导作用和导航作用的结构元素，通常用来放置整个页面或页面内的一个article元素或section元素的标题，也可以包含其他内容，例如数据表格、搜索表单或相关的logo图片。</p>
+							<p>我们可以使用该标签来显示整个网页的标题部分：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>The most important heading on this page<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<p>同一个页面内，每一个内容区块都可以有自己的header元素，例如：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span> 
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>The most important heading on this page<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span> 
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span>   
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span>Title of this article<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">h1</span><span style="color: #0000ff;">&gt;</span> 
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">header</span><span style="color: #0000ff;">&gt;</span> 
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>...Lorem Ipsum dolor set amet...<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1><span style="line-height: 1.5;">footer</span></h1>
+							<p>footer 元素可以作为其上层父级内容区块或一个根区块的脚注。footer 元素通常包括其相关区块的脚注信息，如作者、相关阅读链接以及版权信息等。</p>
+							<p>过去(及目前)，我们通常使用类似下面这样的代码来写页面的页脚：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="footer"</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>copyright<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>sitemap<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>contact<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>to top<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<p>在HTML5中，我们可以不使用div，而用更加语义化的footer来写：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>copyright<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>sitemap<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>contact<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+     <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>to top<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">li</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">ul</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<p>在同一个页面中可以使用多个footer元素，即可以用作页面整体页脚，也可以作为一个内容区块的结尾，例如，我们可以将footer直接写在section或是article中：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+   Section content appears here.
+   </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+      Footer information for section.
+   </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">section</span><span style="color: #0000ff;">&gt;</span>
+
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+   Article content appears here.
+   </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+      Footer information for article.
+   </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">article</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1>address</h1>
+							<p>address元素用来在文档中呈现联系信息，包括文档创建者的名字、站点链接、电子邮箱、真实地址、电话号码等；address不只是用来呈现电子邮箱或真实地址这样的“地址”概念，而应该包括与文档创建人相关的各类联系方式信息。</p>
+							<p>根据以上定义，我们可以使用下面的代码来展示一些志愿者的名字及主页链接：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #000000;">The HTML5 Doctor is run by the following group of volunteers:
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">address</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://html5doctor.com/author/jacko"</span><span style="color: #0000ff;">&gt;</span>Jack Osborne<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">,
+  </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://html5doctor.com/author/richc"</span><span style="color: #0000ff;">&gt;</span>Rich Clark<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">,
+  </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://html5doctor.com/author/miker"</span><span style="color: #0000ff;">&gt;</span>Mike Robinson<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">,
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">address</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<p>下面是另一个范例：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="vcard"</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"> by
+    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">address </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="author"</span><span style="color: #0000ff;">&gt;</span>
+      <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">em </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="fn"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">a </span><span style="color: #ff0000;">title</span><span style="color: #0000ff;">="Posts by Jack Osborne"</span><span style="color: #ff0000;"> href</span><span style="color: #0000ff;">="#"</span><span style="color: #0000ff;">&gt;</span>Jack Osborne<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">em</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">address</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;"> on
+    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">time </span><span style="color: #ff0000;">datetime</span><span style="color: #0000ff;">="2009-11-04"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="published updated"</span><span style="color: #0000ff;">&gt;</span>November 4th, 2009<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">time</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">footer</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<h1>video</h1>
+							<p>通过&lt;video&gt;标签，我们可以抛弃最近不怎么讨好的Flash，直接在页面中播放视频文件。视频文件自然是最符合语义化的文件格式，但该元素标签同样支持音频与图片。</p>
+							<p>过去(及目前)，我们通常要使用类似下面这样繁冗丑陋的代码来将视频放置在页面中，但这种方式要求浏览器安装有Flash插件，并支持JavaScript：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">object </span><span style="color: #ff0000;">classid</span><span style="color: #0000ff;">="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"</span><span style="color: #ff0000;"> width</span><span style="color: #0000ff;">="425"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="344"</span><span style="color: #ff0000;">
+codebase</span><span style="color: #0000ff;">="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="allowFullScreen"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="true"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="allowscriptaccess"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="always"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="src"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="http://www.youtube.com/v/oHg5SJYRHA0&amp;hl=en&amp;fs=1&amp;"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">param </span><span style="color: #ff0000;">name</span><span style="color: #0000ff;">="allowfullscreen"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="true"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">embed </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="application/x-shockwave-flash"</span><span style="color: #ff0000;"> width</span><span style="color: #0000ff;">="425"</span><span style="color: #ff0000;"> height</span><span style="color: #0000ff;">="344"</span><span style="color: #ff0000;">
+  src</span><span style="color: #0000ff;">="http://www.youtube.com/v/oHg5SJYRHA0&amp;hl=en&amp;fs=1&amp;"</span><span style="color: #ff0000;"> allowscriptaccess</span><span style="color: #0000ff;">="always"</span><span style="color: #ff0000;"> allowfullscreen</span><span style="color: #0000ff;">="true"</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">embed</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">object</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<p>HTML5的方式：</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">video </span><span style="color: #ff0000;">width</span><span style="color: #0000ff;">="640"</span><span style="color: #ff0000;">  height</span><span style="color: #0000ff;">="360"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="http://www.youtube.com/demo/google_main.mp4"</span><span style="color: #ff0000;">  controls autobuffer</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+    Try this page in Safari  4! Or you can
+    </span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">a  </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="http://www.youtube.com/demo/google_main.mp4"</span><span style="color: #0000ff;">&gt;</span>download the  video<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">a</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+    instead.
+  </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">video</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+							<p>&lt;video&gt;标签有如下几个常用属性：</p>
+							<ul>
+								<li>Autoplay: 用来设定视频是否在页面加载后自动播放。</li>
+								<li>Src: 为视频指定文件链接或下载路径，当浏览器不支持&lt;video&gt;标签或发生某种播放错误时，可以提供给用户进行下载。</li>
+								<li>Autobuffer: 用来设定视频是否自动缓冲；如果设定，那么页面加载之后，视频会自动下载缓冲，当用户点击播放按钮后，至少已经有一部分视频可以直接观看而无需等待了。</li>
+								<li>Poster: 用来为视频设置一个“相框默认图片”性质的背景图片；当视频无法正常加载播放时可以向用户呈现。</li>
+								<li>Controls: 用来设置是否为视频添加控制条，例如“播放”、“暂停”等；控制条的外观可以自定义。</li>
+								<li>Loop: 用来设置视频是否循环播放。</li>
+								<li>Width , Height: 用来控制视频的宽度与高度。</li>
+							</ul>
+							<h1>audio</h1>
+							<p>HTML5中的新元素标签&lt;audio&gt;是被大家等待已久的，它有原生支持音频播放的功能，而不需要浏览器安装额外的扩展</p>
+							<p>&lt;audio&gt;元素标签的一些常用属性：</p>
+							<ul>
+								<li>src：音频文件路径。</li>
+								<li>autobuffer：设置是否在页面加载时自动缓冲音频。</li>
+								<li>autoplay：设置音频是否自动播放。</li>
+								<li>loop：设置音频是否要循环播放。</li>
+								<li>controls：设置是否显示播放控制面板。</li>
+							</ul>
+							<p>可以看到这些属性和&lt;video&gt;元素标签的属性很类似。下面我们来看一个代码范例：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">audio </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="elvis.ogg"</span><span style="color: #ff0000;"> controls autobuffer</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">audio</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<p>根据定义规范，以下几种API方法是可以使用的：</p>
+							<ul>
+								<li>play()：播放音频</li>
+								<li>pause()：暂停播放</li>
+								<li>canPlayType()：命令浏览器判断当前音频文件是否可以被播放</li>
+								<li>buffered()：设定文件需要缓冲部分的开始与结束时间点。</li>
+							</ul>
+							<p>另外，我们可以使用&lt;source&gt;元素标签来配合&lt;audio&gt;；&lt;source&gt;用来指定多个音频文件，如果当前浏览器不支持第一个文件，那么&lt;audio&gt;会自动尝试播放下面一个&lt;source&gt;中指定的文件；我们还可以在它们后面加上目前常规的&lt;embed&gt;代码来加载Flash播放器，作为后备方案；范例如下：</p>
+							<div class="cnblogs_code">
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">audio </span><span style="color: #ff0000;">controls autobuffer</span><span style="color: #0000ff;">&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">source </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="elvis.ogg"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">source </span><span style="color: #ff0000;">src</span><span style="color: #0000ff;">="elvis.mp3"</span> <span style="color: #0000ff;">/&gt;</span>
+  <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> now include flash fall back </span><span style="color: #008000;">--&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">audio</span><span style="color: #0000ff;">&gt;</span></pre>
+							</div>
+							<h1>datalist</h1>
+							<p>datalist 与 input 的新属性list一起使用可以创建组合框，双击input的时候可以提供选项让用户选择，类似历史记录一样。</p>
+							<div class="cnblogs_code">
+
+								<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">list</span><span style="color: #0000ff;">="browsers"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">datalist </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="browsers"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="Safari"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="Internet Explorer"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="Opera"</span><span style="color: #0000ff;">&gt;</span>
+ <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="Firefox"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">datalist</span><span style="color: #0000ff;">&gt;</span></pre>
+
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+			<!--end: topics 文章、评论容器-->
+		</div>
+	</body>
+
+</html>

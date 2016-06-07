@@ -1,0 +1,110 @@
+.clear {
+	clear: both;
+}
+
+.postTitle {
+	font-size: 110%;
+	font-weight: bold;
+	border-bottom: 1px dashed #ccc;
+	float: right;
+	line-height: 2.5em;
+	font-size: 18px;
+	width: 100%;
+	clear: both;
+}
+
+.postBody {
+	padding: 15px 2px 5px 5px;
+	line-height: 1.5;
+	color: #000;
+	border-bottom: 1px solid #ccc;
+}
+
+.cnblogs_code {
+	background-color: #f5f5f5;
+	font-family: Courier New!important;
+	font-size: 12px!important;
+	border: 1px solid #ccc;
+	padding: 5px;
+	overflow: auto;
+	margin: 5px 0;
+	color: #000;
+}
+
+.cnblogs_code pre {
+	font-family: Courier New!important;
+	font-size: 12px!important;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.postBody {
+	line-height: 1.5;
+}
+
+#cnblogs_post_body h1 {
+	background-color: #AAA;
+	font-size: 26px;
+	padding: 10px 5px;
+}
+
+#cnblogs_post_body {
+	word-break: break-word;
+}
+
+#cnblogs_post_body {
+	margin-bottom: 20px;
+}
+
+#EntryTag {
+	margin-top: 20px;
+	font-size: 9pt;
+	color: gray;
+}
+
+#author_profile {
+	float: left;
+	width: 280px;
+	margin-top: 0;
+	margin-bottom: 10px;
+	color: #000;
+	margin-left: 0;
+	font-size: 12px;
+}
+
+#div_digg {
+	float: right;
+	margin-bottom: 10px;
+	margin-right: 30px;
+	font-size: 12px;
+	width: 125px;
+	text-align: center;
+	margin-top: 10px;
+}
+
+#EntryTag {
+	color: #666;
+}
+
+#topics {
+	min-height: 200px;
+	margin-bottom: 15px;
+	padding: 15px;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	word-break: break-all;
+	background: #fff;
+	border-radius: 7px;
+	box-shadow: 1px 1px 2px #A7A8AD;
+}
+
+#topics .postTitle {
+	font-size: 130%;
+	font-weight: bold;
+	border-bottom: 1px solid #999;
+	float: left;
+	line-height: 2em;
+	width: 100%;
+	padding-left: 5px;
+}
