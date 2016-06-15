@@ -14,57 +14,279 @@
 		</script>
 
 		<script type="text/javascript">
-			var f = function g() {
-				return 23;
-			};
-			console.log(typeof f(), typeof f);
-			console.log(typeof g);
-		</script>
-
-		<script type="text/javascript">
-			(function(x) {
-				delete x;
-				return x;
-			})(1);
-		</script>
-
-		<script type="text/javascript">
-			var temp;
-			var foo = {
-				bar: function() {
-					console.log("bar = ", typeof this, this == temp, this == window);
-					return this.baz;
-				},
-				baz: 1
-			};
-			//
-			//Question One
 			(function() {
-				temp = arguments;
-				//arguments.0 == arguments[0]
-				//foo.bar上下文为arguments
-				console.log("typeof f = ", typeof arguments[0]());
-			})(foo.bar);
-			//
-			//Question Two
-			console.log("typeof(f = foo.bar)() ", typeof(f = foo.bar)());
+				var f = function g() {
+					return 23;
+				};
+				console.log(typeof f(), typeof f);
+				console.log(typeof g);
+			})();
 		</script>
 
 		<script type="text/javascript">
-			//
-			var f = (
-				function f() { return "1"; }, 
-				function g() { return 2; }
-			)();
-			//
-			console.log("typeof f", typeof f, f);
+			(function() {
+				(function(x) {
+					delete x;
+					return x;
+				})(1);
+			})();
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+				var temp;
+				var foo = {
+					bar: function() {
+						console.log("bar = ", typeof this, this == temp, this == window);
+						return this.baz;
+					},
+					baz: 1
+				};
+				//
+				//Question One
+				(function() {
+					temp = arguments;
+					//arguments.0 == arguments[0]
+					//foo.bar上下文为arguments
+					console.log("typeof f = ", typeof arguments[0]());
+				})(foo.bar);
+				//
+				//Question Two
+				console.log("typeof(f = foo.bar)() ", typeof(f = foo.bar)());
+			})();
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+				//
+				var f = (
+					function f() {
+						return "1";
+					},
+					function g() {
+						return 2;
+					}
+				)();
+				//
+				console.log("typeof f", typeof f, f);
+			})();
+		</script>
+
+		<script type="text/javascript">
+			(function(win) {
+				var x = 1;
+				if (function f1() {}) {
+					x += typeof f1;
+				}
+				console.log(x);
+			})(window);
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+				var arr1 = [{
+					name: "apple",
+					count: "2"
+				}, {
+					name: "banner",
+					count: "2"
+				}];
+
+				var newArr = arr1.filter(function(item) {
+					return item.name === "banner"
+				});
+				console.log(newArr);
+
+				arr1.forEach(function(item, index) {
+					console.log(item);
+				});
+
+				console.log(arr1.map(function(item, index) {
+					item.full = [item.name, item.count].join(" ");
+					return item;
+				}));
+
+			})(window);
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+				var arr = ["apple", "orange", "apple", "orange", "pear", "orange"];
+
+				function getWordCnt() {
+					return arr.reduce(function(prev, next) {
+						prev[next] = (prev[next] + 1) || 1;
+						return prev;
+					}, {});
+				}
+
+				console.log(getWordCnt());
+			})(window)
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+
+				console.log(["1", "2", "3"].map(parseInt));
+
+			})(window)
+		</script>
+
+		<script type="text/javascript">
+			// 两个浮点数求和
+			function accAdd(num1, num2) {
+				var r1, r2, m;
+				try {
+					r1 = num1.toString().split('.')[1].length;
+				} catch (e) {
+					r1 = 0;
+				}
+				try {
+					r2 = num2.toString().split(".")[1].length;
+				} catch (e) {
+					r2 = 0;
+				}
+				m = Math.pow(10, Math.max(r1, r2));
+				// return (num1*m+num2*m)/m;
+				return Math.round(num1 * m + num2 * m) / m;
+			}
+
+			// 两个浮点数相减
+			function accSub(num1, num2) {
+				var r1, r2, m;
+				try {
+					r1 = num1.toString().split('.')[1].length;
+				} catch (e) {
+					r1 = 0;
+				}
+				try {
+					r2 = num2.toString().split(".")[1].length;
+				} catch (e) {
+					r2 = 0;
+				}
+				m = Math.pow(10, Math.max(r1, r2));
+				n = (r1 >= r2) ? r1 : r2;
+				return (Math.round(num1 * m - num2 * m) / m).toFixed(n);
+			}
+			// 两数相除
+			function accDiv(num1, num2) {
+				var t1, t2, r1, r2;
+				try {
+					t1 = num1.toString().split('.')[1].length;
+				} catch (e) {
+					t1 = 0;
+				}
+				try {
+					t2 = num2.toString().split(".")[1].length;
+				} catch (e) {
+					t2 = 0;
+				}
+				r1 = Number(num1.toString().replace(".", ""));
+				r2 = Number(num2.toString().replace(".", ""));
+				return (r1 / r2) * Math.pow(10, t2 - t1);
+			}
+
+			function accMul(num1, num2) {
+				var m = 0,
+					s1 = num1.toString(),
+					s2 = num2.toString();
+				try {
+					m += s1.split(".")[1].length
+				} catch (e) {};
+				try {
+					m += s2.split(".")[1].length
+				} catch (e) {};
+				return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / Math.pow(10, m);
+			}
+		</script>
+
+		<script type="text/javascript">
+			(function() {
+
+				function a() {
+
+					var i = 0;
+
+					function b() {
+						return i++;
+					}
+
+					return b;
+
+				}
+
+				var c = a();
+
+				console.log(c());
+
+			})(window);
+		</script>
+		<script type="text/javascript">
+		
+			function People(name) {
+				
+				this.name = name;
+				
+				this.Introduce = function(from) {
+					console.log('my name is ' + this.name, from);
+				}
+			}
+
+			People.Run = function() {
+				console.log('i can run');
+			};
+			
+			//返回 对象类型原型 的引用
+			People.prototype.IntroduceYour = function() {
+				console.log("your name is " + this.name);
+			};
+
+			function A(name) {
+				this.name = name;
+			}
+
+			A.prototype = new People('hello');
+			console.log("A.prototype", A.prototype);
+			//A.Run();			//A.Run is not a function
+			//A.Introduce();		//A.Introduce is not a function
+
+			var a1 = new A();
+			a1.Introduce('a1');
+
+			var p1 = new People('winding');
+
+			p1.Introduce();
+
+			People.Run();
+
+			p1.IntroduceYour();
+
+			console.log('People protype', People.prototype);
+
+			console.log('p1 protype', p1.prototype);
+			
 		</script>
 
 	</head>
 
 	<body>
+		<script>
+			document.write("使用js原生态方法");
+			document.write("<br/> 1.01 + 1.02 =" + (1.01 + 1.02));
+			document.write("<br/> 1.01 - 1.02 =" + (1.01 - 1.02));
+			document.write("<br/> 0.000001 / 0.0001 =" + (0.000001 / 0.0001));
+			document.write("<br/> 0.012345 * 0.000001 =" + (0.012345 * 0.000001));
+			document.write("<br/><hr/>");
+			document.write("<br/>使用自定义方法");
+			document.write("<br/> 1.01 + 1.02 =" + accAdd(1.01, 1.02));
+			document.write("<br/> 1.01 - 1.02 =" + accSub(1.01, 1.02));
+			document.write("<br/> 0.000001 / 0.0001 =" + accDiv(0.000001, 0.0001));
+			document.write("<br/> 0.012345 * 0.000001 =" + accMul(0.012345, 0.000001));
 
-		<article>
+			document.write("<br/> Math.pow(2,53) + 1 =" + accAdd(Math.pow(2, 53), 1));
+		</script>
+
+		<article style="position: fixed; bottom: 0;">
 			http://www.tuicool.com/articles/jIbU3me
 		</article>
 	</body>
