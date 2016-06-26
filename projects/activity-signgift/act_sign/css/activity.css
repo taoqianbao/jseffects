@@ -1,0 +1,902 @@
+﻿* {
+	box-sizing: border-box;
+	-webkit-tap-highlight-color: transparent;
+	-ms-box-sizing: border-box
+}
+
+a,
+abbr,
+acronym,
+address,
+applet,
+big,
+blockquote,
+body,
+caption,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr,
+tt,
+ul,
+var {
+	margin: 0;
+	padding: 0;
+	outline: 0;
+	border: 0;
+	vertical-align: baseline
+}
+
+body {
+	min-width: 20pc;
+	color: #000;
+	font-size: 20px;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+	-webkit-text-size-adjust: none
+}
+
+fieldset,
+img {
+	border: none
+}
+
+ol,
+ul {
+	list-style: none
+}
+
+ul:after,
+ul:before {
+	display: table;
+	content: ""
+}
+
+address,
+em {
+	font-style: normal
+}
+
+a,
+button,
+img {
+	outline: 0;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent
+}
+
+button,
+input,
+optgroup,
+option,
+select,
+textarea {
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: inherit;
+	font-family: inherit
+}
+
+a,
+button,
+img {
+	-webkit-appearance: none
+}
+
+button {
+	border: 0;
+	background: 0 0
+}
+
+a {
+	color: #321c07;
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent
+}
+
+input {
+	box-sizing: border-box;
+	padding: 10px 15px;
+	width: 100%;
+	height: 100%;
+	outline: 0;
+	border: none;
+	background: 0 0;
+	box-shadow: none;
+	font-size: .21875rem;
+	-webkit-appearance: none
+}
+
+.clearfix:after {
+	clear: both;
+	display: block;
+	visibility: visible;
+	height: 0;
+	content: "\0020"
+}
+
+html {
+	font-size: 20px
+}
+
+.acti_sign {
+	position: absolute;
+	right: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	background-size: 100% 100%
+}
+
+.banner {
+	width: 100%;
+	height: auto
+}
+
+.banner img {
+	width: 100%;
+	height: 8.5rem
+}
+
+.acti_sign .signwall2 {
+	position: relative;
+	margin: 0 auto;
+	margin-bottom: -1.4rem;
+	padding: .5rem 1.625rem;
+	width: 100%;
+	height: 12rem;
+	background: url(../img/signwall.png) no-repeat;
+	background-size: 100% 100%
+}
+
+.acti_sign .signwall {
+	position: relative;
+	width: 100%;
+	height: 2rem;
+	background: url(../img/signwall3.jpg) no-repeat;
+	background-size: 100% 100%
+}
+
+.acti_sign .wrap {
+	position: relative;
+	margin-top: .75rem;
+	height: 12rem
+}
+
+.acti_sign .form-item {
+	position: relative;
+	right: .8rem
+}
+
+.acti_sign .form-item span {
+	display: block;
+	padding-top: .5rem;
+	padding-right: 2.4rem;
+	text-align: right;
+	color: #999;
+	font-size: .5rem
+}
+
+.acti_sign .form-item-text label {
+	vertical-align: top
+}
+
+.acti_sign .form-item-pure input,
+.acti_sign .form-item-r input {
+	padding-left: 0
+}
+
+.acti_sign .form-item-r .form-icon-close {
+	right: 2.74rem
+}
+
+.acti_sign .form-switch {
+	position: absolute;
+	top: 50%;
+	right: .227rem;
+	display: -webkit-box;
+	margin-top: -.363rem;
+	width: 2rem;
+	height: .77rem;
+	line-height: .77rem;
+	-webkit-box-align: center
+}
+
+.acti_sign .form-switch input {
+	position: absolute;
+	padding-left: 0;
+	width: 2rem;
+	height: .77rem;
+	outline: 0;
+	border: 0;
+	background: 0 0;
+	-webkit-appearance: none
+}
+
+.acti_sign .form-switch input:before {
+	position: absolute;
+	top: 1px;
+	display: inline-block;
+	box-sizing: content-box;
+	width: 2rem;
+	height: .77rem;
+	border: 1px solid #dfdfdf;
+	border-color: #dfdfdf;
+	border-radius: 20px;
+	background-color: #fdfdfd;
+	background-clip: content-box;
+	box-shadow: #dfdfdf 0 0 0 0 inset;
+	content: '';
+	vertical-align: middle;
+	cursor: pointer;
+	transition: border .4s, box-shadow .4s;
+	-webkit-background-clip: content-box
+}
+
+.acti_sign .form-switch input:after {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: .77rem;
+	height: .77rem;
+	border-radius: 100%;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+	content: '';
+	-webkit-transition: left .2s;
+	transition: left .2s
+}
+
+.acti_sign .form-switch input:checked:before {
+	border-color: #ff8b03;
+	background-color: #ff8b03;
+	box-shadow: #ff8b03 0 0 0 1pc inset;
+	transition: border .4s, box-shadow .4s, background-color 1.2s
+}
+
+.acti_sign .form-switch input:checked:after {
+	left: 1.27rem
+}
+
+.signUser {
+	position: relative;
+	margin-top: .5rem
+}
+
+.signUser .userImg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 42%;
+	border: none;
+	text-align: center
+}
+
+.acti_sign .signUser .userImg img {
+	width: 3.41rem;
+	height: 3.41rem;
+	vertical-align: middle
+}
+
+.acti_sign .signUser .userImgin {
+	overflow: hidden;
+	margin: 0 auto;
+	width: 3.43rem;
+	height: 3.43rem;
+	border-radius: 50%;
+	background: #f0f0f0;
+	text-align: center
+}
+
+.acti_sign .signUser .users {
+	position: absolute;
+	top: .25rem;
+	right: 0;
+	width: 58%;
+	border: none
+}
+
+.acti_sign .signUser p {
+	padding: .1rem 0
+}
+
+.acti_sign .signUser .phone {
+	color: #999;
+	font-size: .59rem
+}
+
+.acti_sign .signUser .phone span {
+	color: #444;
+	text-decoration: none;
+	font-size: .59rem
+}
+
+.acti_sign .signUser .number {
+	color: #ff8b03;
+	font-size: .59rem
+}
+
+.acti_sign .signUser .number i {
+	padding: 0 3px;
+	border-radius: 2px;
+	background: #ff8b03;
+	color: #fff;
+	letter-spacing: 2px;
+	font-style: normal;
+	font-size: .77rem
+}
+
+.acti_sign .signUser .tiper {
+	color: #999;
+	font-size: .59rem
+}
+
+.acti_sign .signwall2 .signBtn {
+	position: absolute;
+	bottom: 1.1rem;
+	width: 83%
+}
+
+.acti_sign .signwall2 .btn_s {
+	width: 100%;
+	text-align: center
+}
+
+.acti_sign .signwall2 .btn_s a {
+	margin: 0 auto;
+	padding: .35rem 3.5rem;
+	border-radius: 4px;
+	background: #ff8b03;
+	color: #fff;
+	font-size: .77rem
+}
+
+.acti_sign .signwall2 .btn_s button:active {
+	background: #ddd;
+	color: #999
+}
+
+.acti_sign .signwall2 .rules {
+	padding-top: .2rem;
+	text-align: center
+}
+
+.acti_sign .signwall2 .rules span {
+	padding: 0 .7rem;
+	background: url(../img/doubt.png) no-repeat;
+	background-position: left center;
+	background-size: .6rem .6rem;
+	color: #ff8b03;
+	font-size: .545rem
+}
+
+.acti_sign .content .topaward h2 {
+	color: #444;
+	text-align: center;
+	font-size: .77rem
+}
+
+.acti_sign .content .topaward p {
+	width: 100%;
+	text-align: center
+}
+
+.acti_sign .content .topaward p span {
+	position: relative;
+	display: inline-block;
+	padding: .1rem .3rem .1rem 1.1rem;
+	border: 1px solid #d5d5d5;
+	border-radius: 4px;
+	color: #d5d5d5;
+	font-size: .545rem
+}
+
+.acti_sign .content .topaward p span img {
+	position: absolute;
+	top: .15rem;
+	left: 0;
+	margin: 0 .3rem;
+	width: .6rem;
+	height: .6rem;
+	vertical-align: middle
+}
+
+.acti_sign .topaward {
+	margin-top: .6rem
+}
+
+.acti_sign .listAll {
+	margin-top: .5rem
+}
+
+.acti_sign .content .list {
+	padding: 0 .9rem
+}
+
+.acti_sign .content .list li {
+	position: relative;
+	margin: .82rem 0
+}
+
+.acti_sign .content .list .day {
+	position: absolute;
+	top: .5rem;
+	left: 0;
+	margin: 0 auto;
+	width: 2.2rem;
+	height: 2.2rem;
+	border-radius: 50%;
+	background: #f2f2f2;
+	text-align: center
+}
+
+.acti_sign .content .list .day span.limday {
+	border-color: #ff8b03;
+	color: #ff8b03
+}
+
+.acti_sign .content .list .day span {
+	display: inline-block;
+	margin: .3rem auto;
+	width: 1.6rem;
+	height: 1.6rem;
+	border: .2rem solid #e5e5e5;
+	border-radius: 50%;
+	background: #fff;
+	color: #e5e5e5;
+	vertical-align: middle;
+	text-align: center;
+	font-size: .6rem;
+	line-height: 1.2rem
+}
+
+.acti_sign .content .list .day span i {
+	display: inline-block;
+	font-style: normal;
+	font-size: .35rem
+}
+
+.content .list .cont {
+	margin-left: 20%;
+	padding: .5rem .1rem .5rem .3rem;
+	width: 80%;
+	background: url(../img/bg_signed.png) no-repeat;
+	background-size: 100% 100%
+}
+
+.acti_sign .content .list .cont .left {
+	float: left;
+	padding-top: .6rem;
+	width: 23%;
+	vertical-align: middle
+}
+
+.acti_sign .content .list .cont .right {
+	float: right;
+	width: 70%
+}
+
+.acti_sign i {
+	font-style: normal
+}
+
+.acti_sign .content .list .cont .left i:first-child {
+	margin-left: .4rem;
+	color: #ff8b03;
+	font-size: .56rem
+}
+
+.acti_sign .content .list .cont .left i:nth-child(2) {
+	color: #ff8b03;
+	font-size: 1.36rem;
+	line-height: 1.36rem
+}
+
+.acti_sign .content .list .cont .left i:nth-child(3) {
+	display: inline-block;
+	padding: .1rem;
+	width: .6rem;
+	border-radius: 2px;
+	background: #ff8b03;
+	color: #fff;
+	font-size: .4rem;
+	line-height: .5rem
+}
+
+.acti_sign .content .list .cont .left i {
+	display: inline-block;
+	margin: .05rem;
+	vertical-align: bottom
+}
+
+.acti_sign .content .list .cont .right p {
+	color: #999;
+	font-size: .5rem
+}
+
+.acti_sign .content .list .cont .right .coupon {
+	color: #444;
+	vertical-align: middle;
+	font-weight: 600;
+	font-size: .64rem
+}
+
+.acti_sign .content .list .cont .right .get button {
+	float: right;
+	display: inline-block;
+	margin-right: .2rem;
+	height: 1.14rem;
+	border-radius: 3px;
+	background: #ff8b03;
+	color: #fff;
+	vertical-align: middle;
+	font-size: .52rem;
+	line-height: 1.14rem
+}
+
+.acti_sign .content .list .cont .right .get2 {
+	float: right;
+	margin-top: .7rem;
+	width: 48%
+}
+
+.acti_sign .content .list .cont .left img {
+	display: block;
+	width: 2.84rem;
+	height: 2.84rem
+}
+
+.acti_sign .content .list .cont .right h3 {
+	padding-top: .4rem;
+	color: #323232;
+	font-weight: 600;
+	font-size: .64rem
+}
+
+.acti_sign .content .list .cont .right .sale {
+	float: left;
+	overflow: auto;
+	width: 52%
+}
+
+.acti_sign .content .list .cont .right .sale i.one {
+	padding-right: .2rem;
+	color: #ff8b03;
+	font-size: .7rem
+}
+
+.acti_sign .content .list .cont .right .sale i.two {
+	color: #bfbfbf;
+	text-decoration: line-through;
+	font-size: .5rem
+}
+
+.acti_sign .content .list .cont2 {
+	border: 1px solid #eee;
+	background: #fff
+}
+
+.acti_sign .content .list .cont2 .left {
+	position: relative
+}
+
+.acti_sign .content .list .cont2 .left em {
+	position: absolute;
+	top: 8px;
+	left: -1.12rem;
+	width: 0;
+	height: 0;
+	border-color: transparent #eee transparent transparent;
+	border-style: solid;
+	border-width: 8px
+}
+
+.acti_sign .content .list .cont2 .left i {
+	position: absolute;
+	top: 17px;
+	left: -20px;
+	width: 10px;
+	height: 10px;
+	border-bottom: 1px solid #ededed;
+	border-left: 1px solid #ededed;
+	background: #fff;
+	transform: rotate(45deg)
+}
+
+.acti_sign .content .list .cont1 .right .get button {
+	margin-right: .3rem
+}
+
+.listAll {
+	position: relative
+}
+
+.acti_sign .listAll .line1 {
+	position: absolute;
+	top: 2.6rem;
+	left: 1.8rem;
+	width: .36rem;
+	height: 10rem;
+	background: url(../img/line.png) no-repeat;
+	background-size: .4rem 10rem
+}
+
+.acti_sign .listAll .line2 {
+	position: absolute;
+	top: 3.2rem;
+	left: 1.88rem;
+	display: none;
+	width: .15rem;
+	height: 0;
+	background: #ff8b03;
+	transition: height .5s
+}
+
+.listAll .line3 {
+	position: absolute;
+	top: 2.6rem;
+	left: 1.89rem;
+	width: .17rem;
+	height: 4rem;
+	background: #ff8b03
+}
+
+.acti_sign #mask {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5)
+}
+
+.acti_sign #logIn {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 888;
+	display: none;
+	margin-top: -3.5rem;
+	margin-left: -4.9rem;
+	width: 200px;
+	height: 5.91rem
+}
+
+.acti_sign #logIn .suc {
+	position: relative;
+	text-align: center
+}
+
+.acti_sign #logIn .suc .imgone {
+	margin-bottom: -1.4rem;
+	width: 7.23rem;
+	height: 2.5rem
+}
+
+.acti_sign #logIn .suc .imgthree {
+	margin-top: 2.3rem;
+	width: 7.14rem;
+	height: 2rem;
+	vertical-align: middle
+}
+
+.acti_sign #logIn .suc .wrapIMG2 {
+	width: 9.95rem;
+	height: 6.11rem;
+	background: url(../img/bg_popup.png) no-repeat;
+	background-size: 9.95rem 6.11rem
+}
+
+.acti_sign #logIn #close {
+	position: absolute;
+	top: 15px;
+	right: -8px;
+	display: block;
+	padding: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 50%;
+	background: #fff;
+	text-align: center;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	cursor: pointer
+}
+
+.acti_sign #logIn h3 #close:hover {
+	color: red
+}
+
+.acti_sign .img3 {
+	animation: scale 1s;
+	-webkit-animation: scale 1s
+}
+
+@keyframes scale {
+	0% {
+		transform: scale(0)
+	}
+	35% {
+		transform: scale(1.1)
+	}
+	70% {
+		transform: scale(.9)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+@-webkit-keyframes scale {
+	0% {
+		transform: scale(0)
+	}
+	35% {
+		transform: scale(1.1)
+	}
+	70% {
+		transform: scale(.9)
+	}
+	to {
+		transform: scale(1)
+	}
+}
+
+.acti_sign .imgone {
+	-webkit-animation: imgone 1s;
+	animation: imgone 1s
+}
+
+@keyframes imgone {
+	0% {
+		transform: translateY(-50%)
+	}
+	to {
+		transform: translateY(0)
+	}
+}
+
+@-webkit-keyframes imgone {
+	0% {
+		-webkit-transform: translateY(-50%)
+	}
+	to {
+		-webkit-transform: translateY(0)
+	}
+}
+
+.acti_sign .img2 {
+	animation: rotate1 .5s linear;
+	-webkit-animation: rotate1 .5s linear;
+	animation-delay: .5s;
+	-webkit-animation-delay: .5s
+}
+
+@keyframes rotate1 {
+	0% {
+		transform: rotate(0)
+	}
+	to {
+		transform: rotate(360deg)
+	}
+}
+
+@-webkit-keyframes rotate1 {
+	0% {
+		-webkit-transform: rotate(0)
+	}
+	to {
+		-webkit-transform: rotate(360deg)
+	}
+}
+
+.acti_sign .contentAct {
+	position: absolute;
+	top: 12%;
+	left: 0;
+	z-index: 10;
+	display: none;
+	overflow: auto;
+	width: 85%;
+	height: 12rem;
+	border-radius: 2px;
+	background: #fff;
+	color: #444;
+	font-size: .6rem
+}
+
+.acti_sign .contentAct h1 {
+	padding: .5rem;
+	border-bottom: 1px solid #eee;
+	color: #444;
+	text-align: center;
+	font-weight: 600;
+	font-size: .75rem
+}
+
+.contentAct p {
+	padding: .5rem
+}
+
+.acti_sign .closeAct {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	padding: .35rem .5rem;
+	background: #f2f2f2;
+	color: #999;
+	font-size: 1rem
+}
+
+.acti_sign .closeAct img {
+	width: 1rem;
+	height: 1rem;
+	vertical-align: middle
+}
+
+.acti_sign .contentAct {
+	-webkit-animation: contentA 1s;
+	animation: contentA 1s
+}
+
+@keyframes contentA {
+	0% {
+		transform: translateY(120%)
+	}
+	to {
+		transform: translateY(0)
+	}
+}
+
+@-webkit-keyframes contentA {
+	0% {
+		-webkit-transform: translateY(120%)
+	}
+	to {
+		-webkit-transform: translateY(0)
+	}
+}
