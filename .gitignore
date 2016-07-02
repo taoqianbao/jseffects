@@ -1,5 +1,20 @@
 
 angular2/bower_components/*
 angular2/node_modules/*
+*/node_modules/*
 
 webpackdemo/.project
+
+webpack/first/node_modules/webpack
+
+webpack/first/node_modules/jquery
+
+webpack/first/node_modules/babel-core
+
+webpack/first/node_modules/babel-loader
+
+webpack/first/node_modules/babel-polyfill
+
+webpack/first/node_modules/babel-preset-es2015
+
+webpack/first/node_modules/json-loader

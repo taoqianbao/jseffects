@@ -6,39 +6,27 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="raphael.min.js" type="text/javascript" charset="utf-8"></script>
-		<!--<script src="popup.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="popup.js" type="text/javascript" charset="utf-8"></script>
 		<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
 		<style type="text/css">
-			html,body{
-				margin: 0; padding: 0;
-				background-color: black;
-			}
 			#container {
 				width: 100%;
-				height: 191px;
-				background-color: #fff;
+				height: 180px;
+				background-color: #ffffff;
 			}
 			rect{
-				/*stroke-width: 2px;
+				stroke-width: 2px;
 				stroke:#d4d9e0;
-				stroke-linecap: butt;*/
+				stroke-linecap: butt;
 			}
 			rect:hover {
-				fill: #1c59ce;
+				fill: #1B6D85;
 			}
 		</style>
 	</head>
 
 	<body>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <defs>
-    <filter id="f1" x="0" y="0" width="200%" height="200%">
-      <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
-      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
-      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-    </filter>
-  </defs>
-</svg>
+
 		<div id="container"></div>
 
 		<script type="text/javascript">
@@ -70,9 +58,9 @@
 				var containerW = $(el).width(),
 					containerH = $(el).height();
 				var paper = Raphael($(el)[0], containerW, containerH);
-				var leftgutter = 0,
-					topgutter = 40,
-					bottomgutter = 15;
+				var leftgutter = 10,
+					topgutter = 30,
+					bottomgutter = 40;
 				var lineHeight = containerH - topgutter - bottomgutter - 15;
 				var points = [];
 				var maxValue = Math.max.apply(null, datas);
@@ -97,17 +85,16 @@
 						"stroke-width": 1
 					},
 					txt1 = {
-						'font-size': 14,
-						'fill': '#7ba3f6'
+						'font-size': 11,
+						'fill': '#0066ff'
 					},
 					txt2 = {
-						'font-size': 14,
-						'fill': '#555555'
+						'font-size': 11,
+						'fill': '#0066ff'
 					},
 					path1 = {
 						'stroke': '#7ba3f6',
-						"stroke-width": 2,
-						"filter": "url(#f1)"
+						"stroke-width": 2
 					},
 					pop1 = {
 						//fill: "#fff",
@@ -122,7 +109,7 @@
 					//
 					var xp = parseFloat(containerW / serieseLength);
 					//
-					var x =  xp * (0.5 + i) ;
+					var x = 30.0 + xp * i;
 					//
 					var y = containerH - bottomgutter - perValue * (datas[i] - minValue);
 					//
@@ -150,15 +137,14 @@
 					//dots
 					var dot = paper.circle(x, y).attr(dotout);
 					//value -text
-					var tips = paper.text(x, y - 20, datas[i] + "% ");
+					var tips = paper.text(x, y - 20, " +" + datas[i] + " ");
 					tips.attr(txt1);
 					// x - text
-					paper.text(x, 15, labels[i]).attr(txt2);
+					paper.text(x, 160, labels[i]).attr(txt2);
 					//
 					//
 					blanket.push(paper.rect(leftgutter + X * i, 0, X, containerH).attr({
-						stroke: "#d4d9e0",
-						strokeWidth:"1",
+						stroke: "none",
 						fill: "#fff",
 						opacity: 0.1
 					}));
@@ -173,17 +159,20 @@
 						//						if (y < 60) {
 						//							side = "bottom";
 						//						}
-						
+						var frame = paper.popup(x, y, tips, side).attr(pop1).hide();
 						//
 						rect.hover(function() {
-							//this.attr("fill", "#edf5ff");
+							this.attr("fill", "#edf5ff");
+							
+							console.log(this);
+							
 							dot.attr(dotin);
-							tips.attr('font-size', 15);
-							tips.attr('fill', "#0066ff");
+							tips.attr('font-size', 13);
+							frame.show();
 						}, function() {
+							frame.hide();
 							dot.attr(dotout);
-							tips.attr('font-size', 14);
-							tips.attr('fill', "#7ba3f6");
+							tips.attr('font-size', 11);
 						});
 					})(x, y, datas[i], labels[i], dot, tips);
 				}
@@ -192,8 +181,8 @@
 		<script type="text/javascript">
 			//$().rendercharts();
 			function rendercharts() {
-				var labels = ['05-18', '05-19', '05-20', '05-21', '05-22'];
-				var datas = [90.08, 100.92, 130.23, 115.30, 120.43];
+				var labels = ['05/18', '05/19', '05/20', '05/21', '05/22', '05/23', '05/24'];
+				var datas = [90.08, 100.92, 130.23, 115.30, 120.43, 76.32, 88.33];
 				renderLine('#container', labels, datas);
 			}
 			window.onload = function() {
