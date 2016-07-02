@@ -1,0 +1,21 @@
+{
+  "name": "webpack.hello.first",
+  "version": "1.0.0",
+  "description": "my first hello project for webpack",
+  "main": "entry.js",
+  "scripts": {
+    "test": "webpack ./entry.js bundle.js"
+  },
+  "author": "peter",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "css-loader": "^0.23.1",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.9.1",
+    "jquery": "^3.0.0"
+  }
+}
