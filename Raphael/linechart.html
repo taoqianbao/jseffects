@@ -7,41 +7,83 @@
 		<title></title>
 		<script src="raphael.min.js" type="text/javascript" charset="utf-8"></script>
 		<!--<script src="popup.js" type="text/javascript" charset="utf-8"></script>-->
-		<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>
+		<!--<script src="//cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js"></script>-->
 		<style type="text/css">
-			html,body{
-				margin: 0; padding: 0;
-				background-color: black;
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: white;
 			}
+			
 			#container {
 				width: 100%;
 				height: 191px;
 				background-color: #fff;
+				border: solid 1px gainsboro;
 			}
-			rect{
+			
+			rect {
 				/*stroke-width: 2px;
 				stroke:#d4d9e0;
 				stroke-linecap: butt;*/
 			}
+			
 			rect:hover {
 				fill: #1c59ce;
+			}
+		</style>
+		<style type="text/css">
+			.shadow {
+				-webkit-filter: drop-shadow( -5px -5px 5px #000);
+				filter: drop-shadow( -5px -5px 5px #000);
+				/* Same syntax as box-shadow */
 			}
 		</style>
 	</head>
 
 	<body>
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <defs>
-    <filter id="f1" x="0" y="0" width="200%" height="200%">
-      <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
-      <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
-      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-    </filter>
-  </defs>
-</svg>
+
+		<svg width="100%" height="300px">
+			
+			<path id="testPath"
+				stroke-linejoin="round" 
+				stroke-linecap="round" 
+				stroke="red" 
+				stroke-opacity="1" 
+				stroke-width="5" 
+				fill="none"  
+				filter="url(#filter1)" 
+	d="M1063 458L1055 428L1034 433L1030 421L1017 423L911 452L895 455L885 441L859 424L809 410L788 394L774 377L744 309L730 313L727 304L669 319L599 341L596 331L491 364L488 357L498 343L490 343L450 352L417 256L371 270L366 253L355 256L351 242L217 282L194 210L191 196L166 113L45 147L44 140L13 150">
+			</path>
+		</svg>
+
+		<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+			<defs>
+				
+		       <filter id="filter1" x="0" y="0">
+		           <feOffset result="offOut" in="SourceAlpha" dx="-2" dy="30" />
+		           <feGaussianBlur result="blurOut" in="offOut" stdDeviation="15" />
+		           <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+			    </filter>
+			    
+				<!--<filter id="f1" x="0" y="0">
+					<feOffset result="offOut" in="SourceGraphic" dx="-5" dy="-5" />
+					<feGaussianBlur result="blurOut" in="offOut" stdDeviation="3" />
+					<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+				</filter>
+				
+				<lineargradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+					<stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+				</lineargradient>-->
+				
+		 	</defs>
+		</svg>
+
 		<div id="container"></div>
 
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			window.onload = function() {
 				var paper = Raphael(10, 50, 320, 200);
 				// 设置随机曲线类型
@@ -59,19 +101,23 @@
 				}
 				setTimeout(animate, 1000);
 			}
-		</script>
+		</script>-->
 
 		<script type="text/javascript">
 			/*
 			 * 
 			 */
 			function renderLine(el, labels, datas) {
+
+				var domEl = document.querySelector(el);
+
 				//
-				var containerW = $(el).width(),
-					containerH = $(el).height();
-				var paper = Raphael($(el)[0], containerW, containerH);
+				var containerW = domEl.clientWidth,
+					containerH = domEl.clientHeight;
+
+				var paper = Raphael(domEl, containerW, containerH);
 				var leftgutter = 0,
-					topgutter = 40,
+					topgutter = 50, //画线区域顶部位置
 					bottomgutter = 15;
 				var lineHeight = containerH - topgutter - bottomgutter - 15;
 				var points = [];
@@ -106,8 +152,21 @@
 					},
 					path1 = {
 						'stroke': '#7ba3f6',
-						"stroke-width": 2,
-						"filter": "url(#f1)"
+						"stroke-width": 3,
+						"filter": "url(#filter1)",
+						"stroke-opacity": "1",
+						"stroke-linecap": "round",
+						"stroke-linejoin": "round"
+							//"fill": "url(#linear)",
+					},
+					path2 = {
+						'stroke': '#fff',
+						"stroke-width": 5,
+						"filter": "url(#filter1)",
+						"stroke-opacity": "1",
+						"stroke-linecap": "round",
+						"stroke-linejoin": "round"
+							//"fill": "url(#linear)"
 					},
 					pop1 = {
 						//fill: "#fff",
@@ -122,7 +181,7 @@
 					//
 					var xp = parseFloat(containerW / serieseLength);
 					//
-					var x =  xp * (0.5 + i) ;
+					var x = xp * (0.5 + i);
 					//
 					var y = containerH - bottomgutter - perValue * (datas[i] - minValue);
 					//
@@ -141,7 +200,13 @@
 					strPath += "L" + points[i].x + " " + points[i].y;
 				}
 				//
+				paper.path(strPath).attr(path2);
 				paper.path(strPath).attr(path1);
+
+				//test 
+				document.getElementById('testPath').setAttribute("d", strPath);
+				document.querySelector('#container').querySelector("path").setAttribute("filter", "url(#filter1)");
+
 				//
 				//
 				for (var i = 0; i < points.length; i++) {
@@ -158,7 +223,7 @@
 					//
 					blanket.push(paper.rect(leftgutter + X * i, 0, X, containerH).attr({
 						stroke: "#d4d9e0",
-						strokeWidth:"1",
+						strokeWidth: "1",
 						fill: "#fff",
 						opacity: 0.1
 					}));
@@ -173,7 +238,7 @@
 						//						if (y < 60) {
 						//							side = "bottom";
 						//						}
-						
+
 						//
 						rect.hover(function() {
 							//this.attr("fill", "#edf5ff");
