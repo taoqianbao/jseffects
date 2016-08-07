@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			window.onload = function() {
+				
+				var worker = new Worker("testWorker.js");
+				
+				worker.onmessage = function(event) {
+					document.getElementById('message').innerHTML = ("Result:" + event.data);
+				};
+
+				worker.onerror = function(error) {
+					document.getElementById('message').innerHTML = ("Error:" + error.message);
+				};
+
+				worker.postMessage(40);
+			};
+		</script>
+
+		<div id="message"></div>
+
+	</body>
+
+</html>
