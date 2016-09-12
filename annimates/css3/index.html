@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>test css3</title>
+		<link href='//fonts.googleapis.com/css?family=Signika+Negative:300,400,700' rel='stylesheet' type='text/css'>
+		<link href='//fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="index.css"/>
+	</head>
+	<body>
+		<div id="banner">
+			<div class="panel" id="panel1">
+				<h1>hungry?</h1>
+			</div>
+			<div class="panel" id="panel2">
+				<h2>How about now?</h2>
+			</div>
+			<div class="panel" id="panel3">
+				<div id="info">
+					<h1>Burger Boy</h1>
+					<ul>
+						<li>Free delivery in NYC</li>
+						<li>Open 24hrs</li>
+					</ul>
+					<div id="orderNow">order now</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="stats">
+			<div>duration: <span id="duration">0</span> 1 iteration</div>
+			<div>totalDuration: <span id="totalDuration">0</span> all iterations including repeatDelays</div>
+			<div>repeat: <span id="repeatCount">0</span> of <span id="totalRepeatCount"></span></div>
+			<div>time: <span id="time">1</span></div>
+			<div>totalTime: <span id="totalTime">1</span></div>
+			<div>progress: <span id="progress">1</span></div>
+			<div>totalProgress: <span id="totalProgress">1</span></div>
+			<button id="restart">restart()</button>
+		</div>
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/sizzle/2.2.0/sizzle.js" type="text/javascript" charset="utf-8"></script>
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
+		
+	</body>
+
+</html>
